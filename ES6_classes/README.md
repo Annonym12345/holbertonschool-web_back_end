@@ -48,3 +48,24 @@
   23   │   set length(value) {
   24   │     if (typeof value !== 'number') {
   25   │       throw new TypeError('Length must be a number');
+
+┬──────────────────────────────────────────────────────────────────────────────────────────────
+       │ File: 10-car.js
+───────┼──────────────────────────────────────────────────────────────────────────────────────────────
+   1   │ export default class Car {
+   2   │   constructor(brand, motor, color) {
+   3   │     this._brand = brand;
+   4   │     this._motor = motor;
+   5   │     this._color = color;
+   6   │   }
+   7   │
+   8   │   cloneCar() {
+   9   │     const Species = this.constructor[Symbol.species];
+  10   │     return new Species();
+  11   │   }
+  12   │
+  13   │   static get [Symbol.species]() {
+  14   │     return this;
+  15   │   }
+  16   │ }
+───────┴─────────────────────────────────────────────────────────────────────────────
